@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Navbar from '../components/Navbar'
 
 export default function Home({ posts }) {
   return (
@@ -8,19 +9,33 @@ export default function Home({ posts }) {
         <title>Document</title>
       </Head>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <Navbar />
+
+      <section className="w-full px-4 sm:px-none py-5 md:w-5/6 mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
           (posts && posts.articles.length > 0) ? (
             posts.articles.map((article, index) => (
-              <article className="card" key={index}>
-                <img className="card-img" src={article.urlToImage} />
-                <div className="card-info">
-                  <span className="text-xs text-opacity-2">{ article.publishedAt }</span>
-                  <h4>{ article.title }</h4>
-                  <p>
+              <article className="w-full bg-white shadow-md border border-gray-200 rounded-lg" key={index}>
+                <a target="_blank" href={article.url}>
+                  <img 
+                    className="w-full h-48 object-cover rounded" 
+                    src={ article.urlToImage }
+                    alt={article.title}
+                  />
+                </a>
+                <div className="p-5">
+                  <a target="_blank" href={article.url} >
+                    <h6 className="text-gray-900 font-bold text-base tracking-tight mb-2 h-12 overflow-hidden">
+                      { article.title }
+                    </h6>
+                  </a>
+                  <p className="font-normal text-sm text-gray-700 mb-3 h-14 overflow-hidden">
                     { article.description }
-                  </p>  
-                </div>  
+                  </p>
+                  <a target="_blank" href={article.url} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" href="#">
+                    Read more
+                  </a>
+                </div>
               </article>
             ))
           ) : (
@@ -30,20 +45,6 @@ export default function Home({ posts }) {
           )
         }
       </section>
-      
-      {/*<div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div className="md:flex">
-          <div className="md:flex-shrink-0">
-            <img className="h-48 w-full object-cover md:h-full md:w-48" src="https://picsum.photos/200" />
-          </div>
-          <div className="p-8">
-            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-            <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-            <p className="mt-2 text-gray-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
-          </div>
-        </div>
-      </div>*/}
-
     </div>
   )
 }
