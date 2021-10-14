@@ -6,7 +6,7 @@ export default function Home({ posts }) {
   return (
     <div>
       <Head>
-        <title>Document</title>
+        <title>News</title>
       </Head>
 
       <Navbar />
