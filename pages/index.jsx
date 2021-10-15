@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
+import Carousel from '../components/CarouselContainer'
 
 export default function Home({ posts }) {
   return (
@@ -10,6 +11,8 @@ export default function Home({ posts }) {
       </Head>
 
       <Navbar />
+
+      <Carousel posts={posts} />
 
       <section className="w-full px-4 sm:px-none py-5 md:w-5/6 mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
@@ -24,6 +27,12 @@ export default function Home({ posts }) {
                   />
                 </a>
                 <div className="p-5">
+                  <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
+                    <a href="/" className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700">
+                      { article.source.name }
+                    </a>
+                    <span className="text-gray-600"> — { article.publishedAt }</span>
+                  </p>
                   <a target="_blank" href={article.url} >
                     <h6 className="text-gray-900 font-bold text-base tracking-tight mb-2 h-12 overflow-hidden">
                       { article.title }
