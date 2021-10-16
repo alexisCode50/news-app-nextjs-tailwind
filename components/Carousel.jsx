@@ -5,11 +5,11 @@ import 'swiper/css'
 // install Swiper modules
 SwiperCore.use([Autoplay]);
 
-export default function CarouselContainer({ posts }) {
+export default function Carousel({ articles }) {
 	return (
 		<>
 			{
-				(posts && posts.articles.length > 0) && (
+				(articles && articles.length > 0) && (
 					<Swiper 
 				        spaceBetween={30} 
 				        centeredSlides={true} 
@@ -20,11 +20,11 @@ export default function CarouselContainer({ posts }) {
 				        className="mySwiper w-5/6 sm:w-full mt-4 mx-auto"
 			       	>
 			    		{
-		    				posts.articles.map((article, index) => (
-								<SwiperSlide>
+		    				articles.map((article, index) => (
+								<SwiperSlide key={index}>
 						          	<div className="container mx-auto">
 							            <div 
-							              className="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" 
+							              className="bg-cover bg-center h-auto text-white py-24 px-10 object-fill" 
 							              style={{backgroundImage: `url('${ article.urlToImage }')`}}
 							            >
 						              		<div className="md:w-1/2">

@@ -1,9 +1,12 @@
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
-import Carousel from '../components/CarouselContainer'
+import Carousel from '../components/Carousel'
+import CardArticle from '../components/CardArticle'
 
-export default function Home({ posts }) {
+export default function Home({ featuredNews, latestNews }) {
+
   return (
     <div>
       <Head>
@@ -12,40 +15,13 @@ export default function Home({ posts }) {
 
       <Navbar />
 
-      <Carousel posts={posts} />
+      <Carousel articles={featuredNews} />
 
       <section className="w-full px-4 sm:px-none py-5 md:w-5/6 mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
-          (posts && posts.articles.length > 0) ? (
-            posts.articles.map((article, index) => (
-              <article className="w-full bg-white shadow-md border border-gray-200 rounded-lg" key={index}>
-                <a target="_blank" href={article.url}>
-                  <img 
-                    className="w-full h-48 object-cover rounded" 
-                    src={ article.urlToImage }
-                    alt={article.title}
-                  />
-                </a>
-                <div className="p-5">
-                  <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                    <a href="/" className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700">
-                      { article.source.name }
-                    </a>
-                    <span className="text-gray-600"> — { article.publishedAt }</span>
-                  </p>
-                  <a target="_blank" href={article.url} >
-                    <h6 className="text-gray-900 font-bold text-base tracking-tight mb-2 h-12 overflow-hidden">
-                      { article.title }
-                    </h6>
-                  </a>
-                  <p className="font-normal text-sm text-gray-700 mb-3 h-14 overflow-hidden">
-                    { article.description }
-                  </p>
-                  <a target="_blank" href={article.url} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" href="#">
-                    Read more
-                  </a>
-                </div>
-              </article>
+          (latestNews && latestNews.length > 0) ? (
+            latestNews.map((article, index) => (
+              <CardArticle article={article} key={index} />
             ))
           ) : (
             <div>
@@ -72,8 +48,22 @@ export async function getStaticProps() {
     }
   }
 
+  const featuredNews = []
+  const latestNews = []
+
+  posts.articles.map((article, index) => {
+    if (index % 2 === 0) {
+      featuredNews.push(article)
+    } else {
+      latestNews.push(article)
+    }
+  })
+
   return {
-    props: { posts }, // will be passed to the page component as props
+    props: { 
+      featuredNews, 
+      latestNews 
+    },
   }
 }
 
