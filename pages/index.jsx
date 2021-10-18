@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import Carousel from '../components/Carousel'
 import CardArticle from '../components/CardArticle'
 
-export default function Home({ featuredNews, latestNews }) {
+export default function HomePage({ featuredNews, latestNews }) {
 
   return (
     <div>
