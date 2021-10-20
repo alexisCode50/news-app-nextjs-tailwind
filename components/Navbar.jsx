@@ -17,7 +17,7 @@ export default function Navbar() {
             </Link>
             <nav className="inline-block">
               <Link href="/technology">
-                <a className="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                   Technology
                 </a>
               </Link>
@@ -50,9 +50,11 @@ export default function Navbar() {
       <div className="block md:hidden w-full pb-4 text-gray-700 bg-white shadow">
         <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
           <div className="p-4 flex flex-row items-center justify-between">
-            <a href="/" className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">
-              News
-            </a>
+            <Link href="/">
+              <a className="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg focus:outline-none focus:shadow-outline">
+                News
+              </a>
+            </Link>
             <button className="md:hidden rounded-lg focus:outline-none focus:shadow-outline" onClick={() => setOpen(!open)}>
               <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
                 {
@@ -69,18 +71,26 @@ export default function Navbar() {
             </button>
           </div>
           <nav className={(open) ? 'flex flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row' : 'hidden flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row'}>
-            <a className="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
-              Technology
-            </a>
-            <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
-              Business
-            </a>
-            <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
-              Sports
-            </a>
-            <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
-              Travel
-            </a>  
+            <Link href="/technology">
+              <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                Technology
+              </a>
+            </Link>
+            <Link href="/business">
+              <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                Business
+              </a>
+            </Link>
+            <Link href="/sports">
+              <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                Sports
+              </a>
+            </Link>
+            <Link href="/travel">
+              <a className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                Travel
+              </a> 
+            </Link> 
           </nav>
           <input
             className="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
