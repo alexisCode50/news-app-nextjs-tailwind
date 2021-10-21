@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Navbar() {
+export default function Header() {
 
   const [open, setOpen] = useState(false);
 
   return (
     <>
+      <Head>
+        <title>News</title>
+      </Head>
+
       <div className="hidden md:block w-full text-gray-700 bg-white shadow">
         <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
           <div className="p-4 flex flex-row items-center justify-between">

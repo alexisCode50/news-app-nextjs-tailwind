@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from '../components/Navbar'
 import Carousel from '../components/Carousel'
 import CardArticle from '../components/CardArticle'
 
 export default function HomePage({ featuredNews, latestNews }) {
 
   return (
-    <div>
-      <Head>
-        <title>News</title>
-      </Head>
-
-      <Navbar />
+    <>
 
       <Carousel articles={featuredNews} />
 
@@ -30,7 +21,7 @@ export default function HomePage({ featuredNews, latestNews }) {
           )
         }
       </section>
-    </div>
+    </>
   )
 }
 
