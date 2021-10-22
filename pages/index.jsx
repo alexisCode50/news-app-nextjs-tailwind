@@ -1,5 +1,6 @@
 import Carousel from '../components/Carousel'
 import CardArticle from '../components/CardArticle'
+import Featured from '../components/Featured'
 
 export default function HomePage({ featuredNews, latestNews }) {
 
@@ -8,7 +9,7 @@ export default function HomePage({ featuredNews, latestNews }) {
 
       <Carousel articles={featuredNews} />
 
-      <section className="w-full px-4 sm:px-none py-5 md:w-5/6 mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <section className="py-5 px-3 sm:px-none grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
           (latestNews && latestNews.length > 0) ? (
             latestNews.map((article, index) => (
@@ -21,6 +22,8 @@ export default function HomePage({ featuredNews, latestNews }) {
           )
         }
       </section>
+
+      <Featured articles={featuredNews} />
     </>
   )
 }

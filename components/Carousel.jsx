@@ -17,7 +17,7 @@ export default function Carousel({ articles }) {
 				          "delay": 5000,
 				          "disableOnInteraction": false
 				        }}
-				        className="mySwiper w-5/6 sm:w-full mt-4 mx-auto"
+				        className="mySwiper w-5/6 sm:w-full"
 			       	>
 			    		{
 		    				articles.map((article, index) => (
@@ -28,7 +28,7 @@ export default function Carousel({ articles }) {
 							              style={{backgroundImage: `url('${ article.urlToImage }')`}}
 							            >
 						              		<div className="md:w-1/2">
-								                <p className="text-2xl mb-10 leading-none">
+								                <p className="text-3xl mb-10 leading-none">
 								                  	{ article.title } 
 								                </p>
 								                <a target="_blank" href={article.url} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" href="#">

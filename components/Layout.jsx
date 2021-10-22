@@ -6,7 +6,9 @@ export default function Layout({ children }) {
 		<>
 			<Header />
 
-			{ children }
+			<main className="w-full md:w-5/6 mx-auto mt-4">
+				{ children }
+			</main>
 
 			<Footer />
 		</>
