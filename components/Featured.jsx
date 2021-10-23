@@ -33,7 +33,7 @@ export default function Featured({ articles }) {
                           />
                         </div>
                         <div className="w-full sm:w-1/2 lg:w-3/5 flex flex-col p-4 sm:p-8">
-                          <h2 className="text-gray-800 text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+                          <h2 className="text-gray-800 md:text-xl lg:text-2xl font-bold mb-4">
                             { article.title } 
                           </h2>
                           <p className="max-w-md text-gray-600 mb-8">

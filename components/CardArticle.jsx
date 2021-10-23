@@ -1,6 +1,10 @@
 import Image from 'next/image'
+import { useDateFormat } from '../helpers/date'
 
 export default function CardArticle({ article }) {
+
+	const { customDate } = useDateFormat()
+
 	return (
 		<article className="w-full bg-white shadow-md border border-gray-200 rounded-lg">
             <a target="_blank" href={article.url}>
@@ -15,7 +19,7 @@ export default function CardArticle({ article }) {
 	                <a target="_blank" href={article.url} className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700">
 	                  { article.source.name }
 	                </a>
-                	<span className="text-gray-600"> — { article.publishedAt }</span>
+                	<span className="text-gray-600"> — { customDate(article.publishedAt) }</span>
               	</p>
               	<a target="_blank" href={article.url} >
 	                <h6 className="text-gray-900 font-bold text-base tracking-tight mb-2 h-12 overflow-hidden">
