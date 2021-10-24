@@ -1,6 +1,7 @@
 import Carousel from '../components/Carousel'
 import CardArticle from '../components/CardArticle'
 import Featured from '../components/Featured'
+import Team from '../components/Team'
 
 export default function HomePage({ featuredNews, latestNews }) {
 
@@ -8,6 +9,8 @@ export default function HomePage({ featuredNews, latestNews }) {
     <>
 
       <Carousel articles={featuredNews} />
+
+      <h1 className="text-center text-4xl font-bold py-5">Daily News</h1>
 
       <section className="py-5 px-3 sm:px-none grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {
@@ -24,6 +27,8 @@ export default function HomePage({ featuredNews, latestNews }) {
       </section>
 
       <Featured articles={featuredNews} />
+
+      <Team />
     </>
   )
 }
