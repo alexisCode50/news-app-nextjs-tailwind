@@ -6,11 +6,11 @@ export default function SidebarCard({ article }) {
 
 	return (
 		<>
-			<div className="max-w-md mx-auto bg-white rounded-xl shadow overflow-hidden md:max-w-2xl mb-3">
-			  	<div className="md:flex">
-			    	<div className="md:flex-shrink-0">
+			<div className="mx-auto bg-white rounded-xl shadow overflow-hidden mb-5">
+			  	<div className="flex">
+			    	<div className="flex-shrink-0">
 			      		<img 
-			      			className="w-24 h-24 object-cover" 
+			      			className="w-24 h-full object-cover" 
 			      			src={ article.urlToImage }
 			      			alt={ article.title }
 		      			/>
