@@ -35,7 +35,7 @@ export default function HomePage({ featuredNews, latestNews }) {
 
 export async function getStaticProps() {
 
-  const res = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2021-10-23&to=2021-10-23&sortBy=popularity&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
+  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
   const posts = await res.json()
 
   if (!posts) {
