@@ -1,10 +1,10 @@
 import LayoutPageByCategory from '../components/LayoutPageByCategory'
 
-export default function SportsPage({ featuredNews, latestNews }) {
+export default function SciencePage({ featuredNews, latestNews }) {
 	return (
 		<>
 			<LayoutPageByCategory
-				titlePage={"Business News"}
+				titlePage={"Science News"}
 				featuredNews={featuredNews} 
 				latestNews={latestNews} 
 			/>
@@ -14,7 +14,7 @@ export default function SportsPage({ featuredNews, latestNews }) {
 
 export async function getStaticProps() {
 
-  	const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
+  	const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
   	const posts = await res.json()
 
   	if (!posts) {
