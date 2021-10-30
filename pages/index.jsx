@@ -1,3 +1,4 @@
+import { httpClient } from '../utils/fetch'
 import Carousel from '../components/Carousel'
 import CardArticle from '../components/CardArticle'
 import Featured from '../components/Featured'
@@ -35,10 +36,9 @@ export default function HomePage({ featuredNews, latestNews }) {
 
 export async function getStaticProps() {
 
-  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
-  const posts = await res.json()
+  const res = await httpClient('/top-headlines?country=us')
 
-  if (!posts) {
+  if (!res.status) {
     return {
       redirect: {
         destination: '/',
@@ -50,7 +50,7 @@ export async function getStaticProps() {
   const featuredNews = []
   const latestNews = []
 
-  posts.articles.map((article, index) => {
+  res.data.map((article, index) => {
     if (index % 2 === 0) {
       featuredNews.push(article)
     } else {

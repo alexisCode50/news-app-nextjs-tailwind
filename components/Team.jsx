@@ -36,7 +36,7 @@ export default function Team() {
 
             <div className="flex flex-col items-center">
               <div className="w-24 md:w-32 h-24 md:h-32 bg-gray-100 rounded-full overflow-hidden shadow-lg mb-2 md:mb-4">
-                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&q=75&fit=crop&w=500" loading="lazy" alt="Photo by Matheus Ferrero" class="w-full h-full object-cover object-center" />
+                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&q=75&fit=crop&w=500" loading="lazy" alt="Photo by Matheus Ferrero" className="w-full h-full object-cover object-center" />
               </div>
 
               <div>

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useDateFormat } from '../helpers/date'
+import { useDateFormat } from '../hooks/date'
 
 export default function CardArticle({ article }) {
 
