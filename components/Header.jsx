@@ -1,30 +1,11 @@
-import React, { useState } from 'react'
-import Router from 'next/router'
+import { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import SearchComponent from './SearchComponent'
 
 export default function Header() {
 
   const [open, setOpen] = useState(false);
-  const [keyword, useKeyword] = useState('') 
-
-  const onChange = (event) => {
-    const {value} = event.target
-
-    useKeyword(value)
-  }
-
-  const onSubmit = (event) => {
-    event.preventDefault()
-
-    if (keyword.length > 0) {
-      Router.push({
-        pathname: '/search',
-        query: { keyword },
-      })
-    }
-
-  }
 
   return (
     <>
@@ -68,15 +49,7 @@ export default function Header() {
               </Link>
             </nav>  
           </div>
-          <form onSubmit={ onSubmit }>
-            <input
-              className="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
-              type="search" 
-              name="keyword"
-              onChange={onChange} 
-              placeholder="Search" 
-            />
-          </form>
+          <SearchComponent />
         </div>
       </div>
 
@@ -130,12 +103,7 @@ export default function Header() {
               </a> 
             </Link>
           </nav>
-          <input
-            className="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
-            type="search" 
-            name="search" 
-            placeholder="Search" 
-          />
+          <SearchComponent />
         </div>
       </div>
     </>

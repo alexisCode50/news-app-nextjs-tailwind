@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { httpClient } from '../utils/fetch'
 import CardArticle from '../components/CardArticle'
 
 export default function SearchPage() {
@@ -8,17 +9,22 @@ export default function SearchPage() {
 	const [articles, setActicles] = useState([])
 	const { keyword } = router.query
 
-	// const getPosts = async () => {
-	// 	const url = `https://newsapi.org/v2/everything?q=${keyword}&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`
-	// 	const res = await fetch(url)
-	// 	const posts = await res.json()
+	useEffect(() => {
+		
+		const initialData = async () => {
 
-	// 	if (posts) {
-	// 		setActicles(posts.articles)
-	// 	}
-	// }
+			setActicles([])
 
-	// getPosts()
+			const res = await httpClient(`/everything?q=${keyword}`)
+
+			if (res.status) {
+				setActicles(res.data)
+		  	}
+		}
+
+		initialData()
+
+	}, [keyword])
 
 	return (
 		<>
