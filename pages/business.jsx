@@ -1,10 +1,11 @@
+import { httpClient } from '../utils/fetch'
 import LayoutPageByCategory from '../components/LayoutPageByCategory'
 
 export default function BusinessPage({ featuredNews, latestNews }) {
 	return (
 		<>
 			<LayoutPageByCategory
-				titlePage={"Sports News"}
+				titlePage={"Business News"}
 				featuredNews={featuredNews} 
 				latestNews={latestNews} 
 			/>
@@ -14,10 +15,9 @@ export default function BusinessPage({ featuredNews, latestNews }) {
 
 export async function getStaticProps() {
 
-  const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e287411c9ae64bbdbbbdc12b88e0a2c3`)
-  const posts = await res.json()
+  const res = await httpClient('/top-headlines?country=us&category=business')
 
-  if (!posts) {
+  if (!res.status) {
     return {
       redirect: {
         destination: '/',
@@ -29,7 +29,7 @@ export async function getStaticProps() {
   const featuredNews = []
   const latestNews = []
 
-  posts.articles.map((article, index) => {
+  res.data.map((article, index) => {
     if (index % 2 === 0) {
       featuredNews.push(article)
     } else {
