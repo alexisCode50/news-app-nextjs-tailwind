@@ -26,10 +26,10 @@ export default function LayoutPageByCategory({ titlePage, latestNews, featuredNe
       	<div className="col-span-2 md:col-span-1 px-3 py-5">
       		{
       			(featuredNews && featuredNews.length > 0) && (
-            	featuredNews.map((article, index) => (
-            		<SidebarCard article={article} key={index} />
-            	))
-          	)
+	            	featuredNews.map((article, index) => (
+	            		<SidebarCard article={article} key={index} />
+	            	))
+          		)
       		}
       	</div>
 			</div>

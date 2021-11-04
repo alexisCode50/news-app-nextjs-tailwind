@@ -1,11 +1,17 @@
+import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Autoplay } from 'swiper'
 import 'swiper/css'
 
 // install Swiper modules
-SwiperCore.use([Autoplay]);
+
 
 export default function Carousel({ articles }) {
+
+	useEffect(() => {
+		SwiperCore.use([Autoplay]);
+	}, [])
+
 	return (
 		<>
 			{
