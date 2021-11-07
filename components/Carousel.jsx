@@ -3,9 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Autoplay } from 'swiper'
 import 'swiper/css'
 
-// install Swiper modules
-
-
 export default function Carousel({ articles }) {
 
 	useEffect(() => {
