@@ -5,12 +5,12 @@ import { httpClient } from '../utils/fetch'
 export default function SearchComponent() {
 
 	
-  	const [keyword, useKeyword] = useState('') 
+  	const [keyword, setKeyword] = useState('') 
 
   	const onChange = (event) => {
     	const { value } = event.target
 
-    	useKeyword(value)
+    	setKeyword(value)
   	}
 
   	const onSubmit = (event) => {
