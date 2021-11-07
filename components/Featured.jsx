@@ -43,7 +43,7 @@ export default function Featured({ articles }) {
                             { article.description }
                           </p>
                           <div className="mt-auto">
-                            <a target="_blank" href={article.url} rel="noopener noreferrer" className="inline-block bg-white hover:bg-gray-100 active:bg-gray-200 focus-visible:ring ring-indigo-300 text-gray-800 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
+                            <a href={article.url} target="_blank" rel="noopener noreferrer" className="inline-block bg-white hover:bg-gray-100 active:bg-gray-200 focus-visible:ring ring-indigo-300 text-gray-800 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">
                               Read more
                             </a>
                           </div>
