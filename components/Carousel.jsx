@@ -40,7 +40,7 @@ export default function Carousel({ articles }) {
 							                <p className="text-2xl sm:text-3xl mb-10 leading-none">
 							                  	{ article.title } 
 							                </p>
-							                <a target="_blank" href={article.url} rel="noopener" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+							                <a target="_blank" href={article.url} rel="noopener noreferrer" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
 							                  	Read more
 							                </a>
 					              		</div>  

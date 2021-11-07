@@ -19,7 +19,7 @@ export default function SidebarCard({ article }) {
 				      	<p className="tracking-wide text-sm text-black-500 font-semibold">
 				      		{ article.source.name } — { customDate(article.publishedAt) }
 				      	</p>
-				      	<a target="_blank" href={article.url} rel="noopener" className="block mt-1 text-sm leading-tight font-medium text-black h-14 overflow-hidden">
+				      	<a target="_blank" href={article.url} rel="noopener noreferrer" className="block mt-1 text-sm leading-tight font-medium text-black h-14 overflow-hidden">
 				      		{ article.title }
 			      		</a>
 				    </div>
