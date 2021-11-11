@@ -3,7 +3,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/:path*',
+        source: '/v2/:path*',
         destination: 'https://newsapi.org/:path*', // Matched parameters can be used in the destination
       },
     ]
