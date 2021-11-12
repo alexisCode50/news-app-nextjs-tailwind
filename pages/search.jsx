@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { httpClient } from '../utils/fetch'
+import { httpClientSide } from '../utils/fetch'
 import CardArticle from '../components/CardArticle'
 
 export default function SearchPage() {
@@ -15,10 +15,10 @@ export default function SearchPage() {
 
 			setActicles([])
 
-			const res = await httpClient(`/everything?q=${keyword}`)
+			const { articles, status } = await httpClientSide(`/search?keyword=${keyword}`)
 
-			if (res.status) {
-				setActicles(res.data)
+			if (status) {
+				setActicles(articles)
 		  	}
 		}
 

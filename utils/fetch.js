@@ -1,14 +1,15 @@
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-const url = process.env.NEXT_PUBLIC_API_URL
+const newApiKey = process.env.NEXT_PUBLIC_API_KEY
+const newsApiUrl = process.env.NEXT_PUBLIC_API_URL
+const newsUrlServer = process.env.NEXT_PUBLIC_API_URL_SERVER
 
 export const httpClient = async (endpoint) => {
 
 	try {
 		
-		const res = await fetch(url + endpoint, {
+		const res = await fetch(newsApiUrl + endpoint, {
 			method: 'GET',
 			headers: {
-      			'Authorization': apiKey
+      			'Authorization': newApiKey
     		}
 		})
 
@@ -22,6 +23,28 @@ export const httpClient = async (endpoint) => {
 	} catch(e) {
 		return {
 			data: [],
+			status: false
+		}
+	}
+
+}
+
+export const httpClientSide = async (endpoint) => {
+
+	try {
+		
+		const res = await fetch(newsUrlServer + endpoint)
+
+		const { articles } = await res.json()
+
+		return {
+			articles,
+			status: true,
+		}
+
+	} catch(e) {
+		return {
+			articles: [],
 			status: false
 		}
 	}
